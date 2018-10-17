@@ -1,3 +1,4 @@
+//const path = require('path')
 module.exports = {
   lintOnSave: false,
   configureWebpack: {
@@ -5,12 +6,13 @@ module.exports = {
       extensions: ['.js', '.json', '.vue'],
     },
   },
-    build: {
-        // Template for index.html
-      //  index: path.resolve(__dirname, '../dist/index.html'),
-
-        // Paths
-      //  assetsRoot: path.resolve(__dirname, '../dist'),
-      //  assetsSubDirectory: 'static',
-        assetsPublicPath: '/',
+    // build: {
+    //     // Template for index.html
+    //     //  index: path.resolve(__dirname, '../dist/index.html'),
+    //
+    //     // Paths
+    //     //assetsRoot: path.resolve(__dirname, '../dist'),
+    //       assetsSubDirectory: 'WebForShow-Dota2-Legue/dist/',
+    //     assetsPublicPath: './',
+    // }
 };
