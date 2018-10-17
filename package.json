@@ -1,5 +1,5 @@
 {
-  "name": "@vue-materials/admin-lite",
+  "name": "@vue-materials/dota2-legue",
   "version": "1.0.0",
   "description": "该模板适用于从 0 到 1 开始搭建项目，内置基础的页面，路由和菜单展示。",
   "author": "ice-admin@alibaba-inc.com",
@@ -56,9 +56,9 @@
     "not ie <= 8"
   ],
   "scaffoldConfig": {
-    "name": "admin-lite",
-    "title": "Admin Lite",
+    "name": "dota2-legue",
+    "title": "dota2-legue",
     "screenshot": "https://img.alicdn.com/tfs/TB1SqrjontYBeNjy1XdXXXXyVXa-2842-1596.png"
   },
-  "title": "VUE 的项目"
+  "title": "dota2-legue"
 }

@@ -1,7 +1,8 @@
 ## 前端技术栈
 
 Vue + icework (通过API连接后端)
-
+#### 演示地址：
+ [dota2-legue](https://hopnetworks.github.io/WebForShow-Dota2-Legue/dist/)
 ## 项目运行
 
 ```
