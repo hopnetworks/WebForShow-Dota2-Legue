@@ -26,10 +26,10 @@
       <div class="user-profile-content">
         <div class="menu-icons">
           <span class="menu-icon"><i class="el-icon-search icon"></i></span>
-          <span class="menu-icon"><i class="el-icon-message icon"></i></span>
+          <!--<span class="menu-icon"><i class="el-icon-message icon"></i></span>-->
           <span class="menu-icon">
             <el-badge is-dot class="item">
-              <i class="el-icon-bell icon"></i>
+              <i class="el-icon-message icon"></i>
             </el-badge>
           </span>
         </div>
@@ -78,7 +78,7 @@ export default {
       // border-bottom: 3px solid #fff;
       }
  .header {
-    position :fixed;
+    position :absolute;
     width :80%;
     height :56px;
     color: #463939;
@@ -105,7 +105,7 @@ export default {
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
   .user-profile-container {
     position: absolute;
-    right: 20px;
+    right: 0px;
     cursor: pointer;
     .user-profile-content {
       display: flex;
