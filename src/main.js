@@ -5,6 +5,8 @@ import 'normalize.css/normalize.css';
 import './styles/index.scss';
 import App from './App.vue';
 import router from './router';
+import axios from 'axios'
+Vue.prototype.$http = axios;
 
 Vue.use(ElementUI);
 
