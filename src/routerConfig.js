@@ -8,6 +8,7 @@ import SideLayout from './layouts/SideLayout';
 import Dashboard from './pages/Dashboard';
 import Analysis from './pages/Analysis';
 import InsertTeam from './pages/InsertTeam';
+import InsertPlayer from './pages/InsertPlayer';
 import Rankandrecord from './pages/Rankandrecord';
 import Rank from './pages/Rank';
 import NotFound from './pages/NotFound';
@@ -90,6 +91,12 @@ const routerConfig = [
         path: '/insertteam',
         layout:SideLayout,
         component: InsertTeam,
+
+    },
+    {
+        path: '/insertplayer',
+        layout:SideLayout,
+        component: InsertPlayer,
 
     },
   {

@@ -9,19 +9,19 @@ const headerMenuConfig = [
 const asideMenuConfig = [
     {
         path: '/dashboard',
-        name: '详情',
+        name: '返回展示页',
         icon: 'el-icon-menu',
     },
     {
         path: '/insertteam',
-        name: '添加队伍',
+        name: '添加队伍与选手',
         icon: 'el-icon-date',
     },
-    {
-        path: '/form',
-        name: '添加选手',
-        icon: 'el-icon-edit-outline',
-    },
+    // {
+    //     path: '/insertteam',
+    //     name: '添加选手',
+    //     icon: 'el-icon-edit-outline',
+    // },
 ];
 
 export { headerMenuConfig,asideMenuConfig  };

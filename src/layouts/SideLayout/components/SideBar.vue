@@ -1,7 +1,7 @@
 <template>
   <scroll-bar>
     <div class="logo">
-      <img src="https://img.alicdn.com/tfs/TB13UQpnYGYBuNjy0FoXXciBFXa-242-134.png" width="40">
+      <img src="./favicon.png" width="80">
       <span class="site-name">Dota2--Legue</span>
     </div>
     <el-menu

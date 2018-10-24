@@ -1,5 +1,5 @@
 <template>
-  <div className="InsertTeam-page">
+  <div id="app"className="InsertPlayer-page">
       <el-button type="primary"style="
     margin-bottom: 10px;
     margin-top: 10px;"
@@ -17,7 +17,7 @@
 
   </span>
       </el-dialog>
-      <FixedTable />
+      <FixedTable v-bind:tabledata="tabledata1"/>
       </div>
 </template>
 
@@ -27,14 +27,22 @@ import Vue from 'vue';
 import axios from 'axios'
 Vue.prototype.$http = axios;
 
+var vm=new Vue({
+    el: 'InsertPlayer-page',
+data:{
 
+}
+
+});
 export default {
   name: 'InsertTeam',
   components: {
     FixedTable,
+
   },
     data() {
         return {
+            tabledata1:[],
             dialogVisible: false,
             newForm:{
                 teamName:""
@@ -48,13 +56,15 @@ export default {
                     done();
                 })
                 .catch(_ => {});
+
         },
 
     onSubmit() {
+        let params = new URLSearchParams();
+        params.append('teamName', this.newForm.teamName);
          let  that=this;
         console.log(this.newForm.teamName);
-        axios.post('http://localhost:8080/insertteam', {
-            teamName:this.newForm.teamName,
+        axios.post('http://localhost:8080/insertteam', params,{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
@@ -63,7 +73,8 @@ export default {
             .then((response) => {
                 // console.log(response.data);
                 console.log(response.data);
-                getTeamData();
+                this.$options.methods.getTeamData();
+            //  this.$options.FixedTable.reload();
                // that.dialogVisible=false;
                // this.tableData3=response.data;
             })
@@ -72,31 +83,29 @@ export default {
             });
         this.dialogVisible=false;
     },
-
-},
-    mounted:function(){
-
-        getTeamData();
-    },
-
-
-}
-function getTeamData(){
-
+       getTeamData(){
+//
     axios.get('http://localhost:8080/findallteam', {
 
     })
         .then((response) => {
             // console.log(response.data);
             console.log(response.data);
+            this.tabledata1=response.data;
+            console.log(this.tabledata1);
 
-           // this.tableData3=response.data;
         })
         .catch(function (error) {
             console.log(error);
         });
 
+}
+},
+    mounted:function(){
+        this.getTeamData();
+    },
 
 
 }
+
 </script>

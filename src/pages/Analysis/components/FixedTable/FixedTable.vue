@@ -4,7 +4,7 @@
       <el-table
       :data="tableData3"
       style="width: 100%"
-      height="286">
+      height="500">
         <el-table-column
           fixed
           prop="personaname"
