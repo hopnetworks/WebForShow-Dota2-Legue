@@ -1,14 +1,14 @@
 <template>
-  <div id="app"className="InsertPlayer-page">
+  <div id="app"className="InsertMatch-page">
       <el-button type="primary"style="
     margin-bottom: 10px;
     margin-top: 10px;"
-                 @click="dialogVisible = true">添加队伍</el-button>
-      <el-dialog @submit.native.prevent title="队伍" :visible.sync="dialogVisible">
+                 @click="dialogVisible = true">添加比赛</el-button>
+      <el-dialog @submit.native.prevent title="比赛" :visible.sync="dialogVisible">
           <el-form :model="newForm" ref="newForm">
 
-              <el-form-item label="队伍名" prop="userAccount">
-                  <el-input v-model="newForm.teamName"  auto-complete="off" style="width:70%;"></el-input>
+              <el-form-item label="MatchId" prop="userAccount">
+                  <el-input v-model="newForm.matchId"  auto-complete="off" style="width:70%;"></el-input>
               </el-form-item>
           </el-form>
           <span slot="footer" class="dialog-footer">
@@ -27,6 +27,9 @@ import Vue from 'vue';
 import axios from 'axios'
 Vue.prototype.$http = axios;
 
+
+
+
 // var vm=new Vue({
 //     el: 'InsertPlayer-page',
 // data:{
@@ -41,14 +44,16 @@ export default {
     data() {
         return {
             tabledata1:[
-            //     {
-            //            teamId:'',
-            //     teamName:''
-            // }
+                {matchId:'',
+                    win:0,
+                    duration:'',
+                    first_blood_time:0,
+                }
+
             ],
             dialogVisible: false,
             newForm:{
-                teamName:""
+               matchId:0
             }
         };
     },
@@ -64,10 +69,10 @@ export default {
 
     onSubmit() {
         let params = new URLSearchParams();
-        params.append('teamName', this.newForm.teamName);
+        params.append('matchId', this.newForm.matchId);
          let  that=this;
-        console.log(this.newForm.teamName);
-        axios.post('http://localhost:8080/insertteam', params,{
+        console.log(this.newForm.matchId);
+        axios.post('http://localhost:8080/insertmatch', params,{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
@@ -76,8 +81,20 @@ export default {
             .then((response) => {
                 // console.log(response.data);
                 console.log(response.data);
+                axios.get('http://localhost:8080/findallmatch', {
 
-
+                })
+                    .then((response) => {
+                        // console.log(response.data);
+                        console.log(response.data);
+                        this.tabledata1=response.data;
+                  // this.tabledata1.duration=   Vue.prototype.timeTurn(response.data.duration);
+                        console.log(this.tabledata1);
+                        //  Vue.set(this.tabledata1,response.data)
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             //  this.$options.FixedTable.reload();
                // that.dialogVisible=false;
                // this.tableData3=response.data;
@@ -89,15 +106,14 @@ export default {
     },
        getTeamData(){
 //
-    axios.get('http://localhost:8080/findallteam', {
+    axios.get('http://localhost:8080/findallmatch', {
 
     })
         .then((response) => {
             // console.log(response.data);
             console.log(response.data);
             this.tabledata1=response.data;
-
-
+            console.log(this.tabledata1);
           //  Vue.set(this.tabledata1,response.data)
         })
         .catch(function (error) {
@@ -109,7 +125,6 @@ export default {
     mounted:function(){
         this.getTeamData();
     },
-
 
 }
 

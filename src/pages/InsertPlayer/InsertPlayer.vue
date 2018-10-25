@@ -1,5 +1,5 @@
 <template>
-  <div id="app"className="InsertPlayer-page">
+  <div className="InsertTeam-page">
       <el-button type="primary"style="
     margin-bottom: 10px;
     margin-top: 10px;"
@@ -17,7 +17,7 @@
 
   </span>
       </el-dialog>
-      <FixedTable v-bind:tabledata="tabledata1"/>
+      <FixedTable />
       </div>
 </template>
 
@@ -27,25 +27,14 @@ import Vue from 'vue';
 import axios from 'axios'
 Vue.prototype.$http = axios;
 
-// var vm=new Vue({
-//     el: 'InsertPlayer-page',
-// data:{
-// }
-// });
+
 export default {
   name: 'InsertTeam',
   components: {
     FixedTable,
-
   },
     data() {
         return {
-            tabledata1:[
-            //     {
-            //            teamId:'',
-            //     teamName:''
-            // }
-            ],
             dialogVisible: false,
             newForm:{
                 teamName:""
@@ -59,7 +48,6 @@ export default {
                     done();
                 })
                 .catch(_ => {});
-
         },
 
     onSubmit() {
@@ -76,9 +64,7 @@ export default {
             .then((response) => {
                 // console.log(response.data);
                 console.log(response.data);
-
-
-            //  this.$options.FixedTable.reload();
+                getTeamData();
                // that.dialogVisible=false;
                // this.tableData3=response.data;
             })
@@ -87,30 +73,30 @@ export default {
             });
         this.dialogVisible=false;
     },
-       getTeamData(){
-//
-    axios.get('http://localhost:8080/findallteam', {
 
-    })
-        .then((response) => {
-            // console.log(response.data);
-            console.log(response.data);
-            this.tabledata1=response.data;
-
-
-          //  Vue.set(this.tabledata1,response.data)
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-
-}
 },
-    mounted:function(){
-        this.getTeamData();
-    },
+    // mounted:function(){
+    //
+    //     getTeamData();
+    // },
 
 
 }
-
+// function getTeamData(){
+//
+//     axios.get('http://localhost:8080/findallteam', {
+//
+//     })
+//         .then((response) => {
+//             // console.log(response.data);
+//             console.log(response.data);
+//             this.newForm=response.data;
+//         })
+//         .catch(function (error) {
+//             console.log(error);
+//         });
+//
+//
+//
+// }
 </script>

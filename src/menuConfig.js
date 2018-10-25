@@ -17,11 +17,11 @@ const asideMenuConfig = [
         name: '添加队伍与选手',
         icon: 'el-icon-date',
     },
-    // {
-    //     path: '/insertteam',
-    //     name: '添加选手',
-    //     icon: 'el-icon-edit-outline',
-    // },
+    {
+        path: '/insertMatch',
+        name: '录入比赛',
+        icon: 'el-icon-edit-outline',
+    },
 ];
 
 export { headerMenuConfig,asideMenuConfig  };

@@ -2,43 +2,42 @@
 
   <div className="fixed-table">
     <basic-container>
-
+        <!--<div> <button>新增队伍</button>-->
+        <!--</div>-->
       <el-table
-      :data="tabledata"
-      style="width:100%"
+      :data="tableData"
+      style="width: 100%"
       height="500px">
         <el-table-column
           fixed
           prop="teamName"
-          label="队伍名"
+          label="选手Steam32位Id"
           width="150">
         </el-table-column>
         <el-table-column
           prop="gameSum"
-          label="队伍比赛数"
+          label="选手"
           width="120">
         </el-table-column>
         <el-table-column
-          prop="integration"
-          label="队伍积分"
+          prop="killsSum"
+          label="选手击杀总数"
           width="120">
         </el-table-column>
-
-     <el-table-column label="操作"  >
+     <el-table-column label="操作" width="180" fixed="right">
           <template slot-scope="scope">
-            <el-button
-              size="mini"
-              @click="handleEdit(scope.$index, scope.row)">添加选手</el-button>
+            <!--<el-button-->
+              <!--size="mini"-->
+              <!--@click="handleEdit(scope.$index, scope.row)">添加选手</el-button>-->
             <el-button
               size="mini"
               type="danger"
-              @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+              @click="handleDelete(scope.$index, scope.row)">删除该选手</el-button>
           </template>
         </el-table-column>
 
       </el-table>
     </basic-container>
-      <!--<div>{{'parent data : ' + tabledata}}</div>-->
   </div>
 </template>
 
@@ -52,47 +51,29 @@ Vue.prototype.$http = axios;
 
   export default {
   components: { BasicContainer },
-
   name: 'FixedTable',
-      props:
-         [ 'tabledata'
-          ],
-  // data() {
-  //   return {
-  //      // tableData: [
-  //    // ]
-  //   }
-  // },
-  //     computed: {
-  //         tabledata() {
-  //             return this.tabledata
-  //         }
-  //         },
-
-      watch: {
-
-          tabledata: function (val) {
-                  this. tabledata(val)
-              },
-
-          tabledata(newValue, oldValue) {//普通的watch监听
-              console.log("a: " + newValue, oldValue);
-          }
-      },
+  data() {
+    return {
+        tableData: [
+      ]
+    }
+  },
   methods: {
       getTeamData(){
-          axios.get('http://localhost:8080/findallteam', {
+          axios.get('http://localhost:8080/findbyteamid', {
 
           })
               .then((response) => {
                   // console.log(response.data);
                   console.log(response.data);
 
-                  this.tabledata=response.data;
+                  this.tableData=response.data;
               })
               .catch(function (error) {
                   console.log(error);
               });
+
+
 
       },
     handleEdit(index, row) {
@@ -104,7 +85,8 @@ Vue.prototype.$http = axios;
   },
 
   mounted:function(){
-   //this.tabledata=this.tabledata;
+
+this.getTeamData();
   },
 
 

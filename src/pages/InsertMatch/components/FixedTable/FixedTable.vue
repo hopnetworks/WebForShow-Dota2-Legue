@@ -9,26 +9,30 @@
       height="500px">
         <el-table-column
           fixed
-          prop="teamName"
-          label="队伍名"
+          prop="matchId"
+          label="比赛ID"
           width="150">
         </el-table-column>
         <el-table-column
-          prop="gameSum"
-          label="队伍比赛数"
+          prop="duration"
+          label="比赛时间"
           width="120">
         </el-table-column>
         <el-table-column
-          prop="integration"
-          label="队伍积分"
+          prop="first_blood_time"
+          label="一血时间"
           width="120">
         </el-table-column>
-
+          <el-table-column
+                  prop="winteam"
+                  label="胜利阵营"
+                  width="120">
+          </el-table-column>
      <el-table-column label="操作"  >
           <template slot-scope="scope">
-            <el-button
-              size="mini"
-              @click="handleEdit(scope.$index, scope.row)">添加选手</el-button>
+            <!--<el-button-->
+              <!--size="mini"-->
+              <!--@click="handleEdit(scope.$index, scope.row)">添加选手</el-button>-->
             <el-button
               size="mini"
               type="danger"
@@ -69,16 +73,7 @@ Vue.prototype.$http = axios;
   //         }
   //         },
 
-      watch: {
 
-          tabledata: function (val) {
-                  this. tabledata(val)
-              },
-
-          tabledata(newValue, oldValue) {//普通的watch监听
-              console.log("a: " + newValue, oldValue);
-          }
-      },
   methods: {
       getTeamData(){
           axios.get('http://localhost:8080/findallteam', {
@@ -95,11 +90,12 @@ Vue.prototype.$http = axios;
               });
 
       },
-    handleEdit(index, row) {
-      console.log(index, row);
-    },
+
     handleDelete(index, row) {
       console.log(index, row);
+
+
+
     }
   },
 

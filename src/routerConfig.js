@@ -11,6 +11,7 @@ import InsertTeam from './pages/InsertTeam';
 import InsertPlayer from './pages/InsertPlayer';
 import Rankandrecord from './pages/Rankandrecord';
 import Rank from './pages/Rank';
+import InsertMatch from './pages/InsertMatch';
 import NotFound from './pages/NotFound';
 
 const routerConfig = [
@@ -47,24 +48,14 @@ const routerConfig = [
     component: NotFound,
 
   },
+    {
+        path: '/insertMatch',
+        layout:SideLayout,
+        component: InsertMatch,
 
-  // {
-  //   path: '/profile',
-  //   layout: HeaderAsideLayout,
-  //   component: NotFound,
-  //   children: [
-  //     {
-  //       path: '/profile/success',
-  //       layout: HeaderAsideLayout,
-  //       component: NotFound,
-  //     },
-  //     {
-  //       path: '/profile/fail',
-  //       layout: HeaderAsideLayout,
-  //       component: NotFound,
-  //     },
-  //   ],
-  // },
+    },
+
+
   {
     path: '/Analysis',
     layout: HeaderAsideLayout,
