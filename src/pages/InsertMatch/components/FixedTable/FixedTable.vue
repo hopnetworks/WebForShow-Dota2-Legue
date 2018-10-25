@@ -100,7 +100,7 @@ Vue.prototype.$http = axios;
   },
 
   mounted:function(){
-   //this.tabledata=this.tabledata;
+   this.getTeamData();
   },
 
 
