@@ -3,22 +3,23 @@
       <el-button type="primary"style="
     margin-bottom: 10px;
     margin-top: 10px;"
-                 @click="dialogVisible = true">添加队伍</el-button>
+                 @click="dialogVisible = true">添加选手</el-button>
       <el-dialog @submit.native.prevent title="队伍" :visible.sync="dialogVisible">
           <el-form :model="newForm" ref="newForm">
 
-              <el-form-item label="队伍名" prop="userAccount">
-                  <el-input v-model="newForm.teamName"  auto-complete="off" style="width:70%;"></el-input>
+              <el-form-item label="选手accountId" prop="userAccount">
+                  <el-input v-model="newForm.accountId"  auto-complete="off" style="width:70%;"></el-input>
               </el-form-item>
           </el-form>
           <span slot="footer" class="dialog-footer">
                 <el-button type="primary"  @click="onSubmit">确 定</el-button>
     <el-button @click="dialogVisible = false">取 消</el-button>
 
+
   </span>
       </el-dialog>
-      <FixedTable />
-      </div>
+      <FixedTable v-bind:tabledata="tabledata1"/>
+  </div>
 </template>
 
 <script>
@@ -33,12 +34,19 @@ export default {
   components: {
     FixedTable,
   },
+   created() {
+       this.teamId = this.$route.query.team_id;
+   },
     data() {
+
         return {
+            tabledata1:[
+            ],
             dialogVisible: false,
             newForm:{
-                teamName:""
-            }
+                accountId:0
+            },
+            teamId:'',
         };
     },
     methods: {
@@ -52,10 +60,11 @@ export default {
 
     onSubmit() {
         let params = new URLSearchParams();
-        params.append('teamName', this.newForm.teamName);
+        params.append('teamId', this.teamId);
+        params.append('accountId', this.newForm.accountId);
          let  that=this;
-        console.log(this.newForm.teamName);
-        axios.post('http://localhost:8080/insertteam', params,{
+        console.log(this.newForm.accountId);
+        axios.post('http://localhost:8080/insertplayer', params,{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
@@ -64,9 +73,22 @@ export default {
             .then((response) => {
                 // console.log(response.data);
                 console.log(response.data);
-                getTeamData();
-               // that.dialogVisible=false;
-               // this.tableData3=response.data;
+            params = new URLSearchParams();
+                console.log( this.teamId);
+                params.append('teamId', this.teamId);
+                axios.post('http://localhost:8080/findbyteamid',params, {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                })
+                    .then((response) => {
+                        // console.log(response.data);
+
+                        this.tabledata1=response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             })
             .catch(function (error) {
                 console.log(error);
@@ -75,28 +97,33 @@ export default {
     },
 
 },
-    // mounted:function(){
-    //
-    //     getTeamData();
-    // },
+    mounted:function(){
+
+        let params = new URLSearchParams();
+        params.append('teamId', this.teamId);
+        console.log( this.teamId);
+
+        axios.post('http://localhost:8080/findbyteamid',params,{
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+            .then((response) => {
+                // console.log(response.data);
+                console.log(response.data);
+                this.tabledata1=response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    },
 
 
 }
-// function getTeamData(){
-//
-//     axios.get('http://localhost:8080/findallteam', {
-//
-//     })
-//         .then((response) => {
-//             // console.log(response.data);
-//             console.log(response.data);
-//             this.newForm=response.data;
-//         })
-//         .catch(function (error) {
-//             console.log(error);
-//         });
-//
-//
-//
-// }
+function getData(){
+
+
+
+}
 </script>

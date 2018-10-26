@@ -73,6 +73,7 @@ Vue.prototype.$http = axios;
   //         }
   //         },
 
+      inject:  ['reload'],
 
   methods: {
       getTeamData(){
@@ -92,11 +93,39 @@ Vue.prototype.$http = axios;
       },
 
     handleDelete(index, row) {
-      console.log(index, row);
+        let params = new URLSearchParams();
+        params.append('matchId',row.matchId);
+      console.log(row.matchId);
+        axios.post('http://localhost:8080//deletematch', params,{
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+            .then((response) => {
+                // console.log(response.data);
+                console.log(response.data);
+          //   this.$router.replace({
+          //         path: '/empty',
+           //    })
+//then replace your route (with same component)
+          //    this.$router.replace({
+           //         path: '/insertteam',
+           //     })
+               // this.$router.push({ path: '/empty' })
+              //  this.$router.push({ path: '/insertteam' })
 
+this.reload();
+                //  this.$options.FixedTable.reload();
+                // that.dialogVisible=false;
+                // this.tableData3=response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
 
     }
+
   },
 
   mounted:function(){

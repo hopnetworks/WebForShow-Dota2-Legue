@@ -5,17 +5,17 @@
         <!--<div> <button>新增队伍</button>-->
         <!--</div>-->
       <el-table
-      :data="tableData"
+      :data="tabledata"
       style="width: 100%"
       height="500px">
         <el-table-column
           fixed
-          prop="teamName"
+          prop="accountId"
           label="选手Steam32位Id"
           width="150">
         </el-table-column>
         <el-table-column
-          prop="gameSum"
+          prop="name"
           label="选手"
           width="120">
         </el-table-column>
@@ -52,41 +52,54 @@ Vue.prototype.$http = axios;
   export default {
   components: { BasicContainer },
   name: 'FixedTable',
+      props:
+          [ 'tabledata'
+          ],
+      inject:  ['reload'],
   data() {
+
     return {
-        tableData: [
-      ]
+        teamId:''
     }
   },
+
   methods: {
       getTeamData(){
-          axios.get('http://localhost:8080/findbyteamid', {
 
+
+      },
+    handleEdit(index, row) {
+
+      console.log(index, row);
+    },
+      handleDelete(index, row) {
+          let params = new URLSearchParams();
+          params.append('accountId',row.accountId);
+          console.log(row.teamId);
+          axios.post('http://localhost:8080/deleteplayer', params,{
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+              }
           })
               .then((response) => {
                   // console.log(response.data);
                   console.log(response.data);
-
-                  this.tableData=response.data;
+                  this.reload();
+                  //  this.$options.FixedTable.reload();
+                  // that.dialogVisible=false;
+                  // this.tableData3=response.data;
               })
               .catch(function (error) {
                   console.log(error);
               });
 
 
-
-      },
-    handleEdit(index, row) {
-      console.log(index, row);
-    },
-    handleDelete(index, row) {
-      console.log(index, row);
-    }
+      }
   },
 
   mounted:function(){
 
-this.getTeamData();
+//this.getTeamData();
   },
 
 

@@ -6,12 +6,16 @@
       <el-table
               :data="tabledata"
               style="width:100%"
-              height="500px">
+              stripe
+
+              @row-click="handleShow">
         <el-table-column
+                type="button"
                 fixed
                 prop="matchId"
                 label="比赛ID"
-                width="150">
+                width="150"
+                @click="handleShow(scope.$index, scope.row)">
         </el-table-column>
         <el-table-column
                 prop="duration"
@@ -28,15 +32,15 @@
                 label="胜利阵营"
                 width="120">
         </el-table-column>
-        <el-table-column label="操作"  >
+        <el-table-column label="胜利队伍"  >
           <template slot-scope="scope">
             <!--<el-button-->
             <!--size="mini"-->
             <!--@click="handleEdit(scope.$index, scope.row)">添加选手</el-button>-->
-            <el-button
-                    size="mini"
-                    type="primary"
-                    @click="handleDelete(scope.$index, scope.row)">查看</el-button>
+            <!--<el-button-->
+                    <!--size="mini"-->
+                    <!--type="primary"-->
+                    <!--@click="handleDelete(scope.$index, scope.row)">查看</el-button>-->
           </template>
         </el-table-column>
 
@@ -68,8 +72,10 @@ Vue.prototype.$http = axios;
           handleEdit(index, row) {
               console.log(index, row);
           },
-          handleDelete(index, row) {
-              console.log(index, row);
+          handleShow(row) { console.log( row);
+              this.$router.push({ path: '/matchdetial', query: { match_id: row.matchId }})
+
+
           }
       },
       mounted: function () {

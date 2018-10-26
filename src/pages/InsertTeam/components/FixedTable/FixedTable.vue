@@ -57,6 +57,7 @@ Vue.prototype.$http = axios;
       props:
          [ 'tabledata'
           ],
+      inject:  ['reload'],
   // data() {
   //   return {
   //      // tableData: [
@@ -69,38 +70,49 @@ Vue.prototype.$http = axios;
   //         }
   //         },
 
-      watch: {
-
-          tabledata: function (val) {
-                  this. tabledata(val)
-              },
-
-          tabledata(newValue, oldValue) {//普通的watch监听
-              console.log("a: " + newValue, oldValue);
-          }
-      },
+      // watch: {
+      //
+      //     tabledata: function (val) {
+      //             this. tabledata(val)
+      //         },
+      //
+      //     tabledata(newValue, oldValue) {//普通的watch监听
+      //         console.log("a: " + newValue, oldValue);
+      //     }
+      // },
   methods: {
-      getTeamData(){
-          axios.get('http://localhost:8080/findallteam', {
 
+    handleEdit(index, row) {
+      console.log(index, row);
+      //  path: '/insertteam'
+        this.$router.push({ path: '/insertplayer', query: { team_id: row.teamId }})
+
+
+
+    },
+      handleDelete(index, row) {
+          let params = new URLSearchParams();
+          params.append('teamId',row.teamId);
+          console.log(row.teamId);
+          axios.post('http://localhost:8080/deleteteam', params,{
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+              }
           })
               .then((response) => {
                   // console.log(response.data);
                   console.log(response.data);
-
-                  this.tabledata=response.data;
+           this.reload();
+                  //  this.$options.FixedTable.reload();
+                  // that.dialogVisible=false;
+                  // this.tableData3=response.data;
               })
               .catch(function (error) {
                   console.log(error);
               });
 
-      },
-    handleEdit(index, row) {
-      console.log(index, row);
-    },
-    handleDelete(index, row) {
-      console.log(index, row);
-    }
+
+      }
   },
 
   mounted:function(){

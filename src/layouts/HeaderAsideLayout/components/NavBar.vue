@@ -15,7 +15,7 @@
           <router-link to="/rank">队伍积分排行</router-link>
         </div>
         <div class="item">
-          <router-link to="/palyerrank">玩家排行</router-link>
+          <router-link to="/playerrank">玩家排行</router-link>
         </div>
       </div>
       <div to="/user" class="user" @click="$router.push('/user')">

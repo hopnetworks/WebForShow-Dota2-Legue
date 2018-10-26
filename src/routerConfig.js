@@ -13,11 +13,11 @@ import Rankandrecord from './pages/Rankandrecord';
 import Rank from './pages/Rank';
 import InsertMatch from './pages/InsertMatch';
 import NotFound from './pages/NotFound';
-
+import PlayerRank from './pages/PlayerRank';
 const routerConfig = [
   {
     path: '/',
-    layout: HeaderAsideLayout,
+    layout: SideLayout,
     component: Dashboard,
   },
     {
@@ -55,7 +55,11 @@ const routerConfig = [
 
     },
 
-
+    {
+        path: '/playerrank',
+        layout: HeaderAsideLayout,
+        component: PlayerRank,
+    },
   {
     path: '/Analysis',
     layout: HeaderAsideLayout,
@@ -100,6 +104,9 @@ const routerConfig = [
     layout: HeaderAsideLayout,
     component: Rank,
   },
+    {
+        path: '/empty',
+    },
   {
     path: '*',
     layout: HeaderAsideLayout,

@@ -46,6 +46,7 @@ export default {
             //     teamName:''
             // }
             ],
+            teamId:'',
             dialogVisible: false,
             newForm:{
                 teamName:""

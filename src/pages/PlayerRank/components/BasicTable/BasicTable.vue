@@ -7,37 +7,38 @@
             :data="tabledata"
             style="width:100%"
             stripe
-
             @row-click="handleShow">
       <el-table-column
               type="button"
               fixed
-              prop="teamName"
-              label="队伍名"
+              prop="accountId"
+              label="玩家Id"
               width="150"
               @click="handleShow(scope.$index, scope.row)">
       </el-table-column>
       <el-table-column
-              prop="gameSum"
-              label="比赛数"
+              prop="name"
+              label="玩家名"
               width="120">
       </el-table-column>
       <el-table-column
-              prop="integration"
-              label="队伍积分"
+              prop="killsSum"
+              label="联赛总击杀"
               width="120">
       </el-table-column>
 
+      <el-table-column
+              prop="assistsSum"
+              label="联赛总助攻"
+              width="120">
+      </el-table-column>
+      <el-table-column
+              prop="deathsSum"
+              label="联赛死亡"
+              width="120">
+      </el-table-column>
       <el-table-column  >
-        <template slot-scope="scope">
-          <!--<el-button-->
-          <!--size="mini"-->
-          <!--@click="handleEdit(scope.$index, scope.row)">添加选手</el-button>-->
-          <!--<el-button-->
-          <!--size="mini"-->
-          <!--type="primary"-->
-          <!--@click="handleDelete(scope.$index, scope.row)">查看</el-button>-->
-        </template>
+
       </el-table-column>
 
     </el-table>
@@ -69,14 +70,14 @@
                 console.log(index, row);
             },
             handleShow(row) { console.log( row);
-                this.$router.push({ path: '/teamdetial', query: { team_id: row.teamId }})
+                this.$router.push({ path: '/playerdetial', query: { team_id: row.teamId }})
 
 
             }
         },
         mounted: function () {
 
-            axios.get('http://localhost:8080/findallteam', {})
+            axios.get('http://localhost:8080/findallplayer', {})
                 .then((response) => {
                     // console.log(response.data);
                     console.log(response.data);
