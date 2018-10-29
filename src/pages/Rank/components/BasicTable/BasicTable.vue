@@ -10,12 +10,13 @@
 
             @row-click="handleShow">
       <el-table-column
+             href=""
               type="button"
               fixed
               prop="teamName"
               label="队伍名"
               width="150"
-              @click="handleShow(scope.$index, scope.row)">
+           @click="handleShow(scope.$index, scope.row)">
       </el-table-column>
       <el-table-column
               prop="gameSum"
@@ -76,7 +77,7 @@
         },
         mounted: function () {
 
-            axios.get('http://localhost:8080/findallteam', {})
+            axios.get('http://localhost:8001/findallteam', {})
                 .then((response) => {
                     // console.log(response.data);
                     console.log(response.data);

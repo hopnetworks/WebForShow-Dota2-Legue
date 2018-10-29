@@ -45,10 +45,9 @@
 <script>
 import BasicContainer from '@vue-materials/basic-container'
 import axios from 'axios'
-import VueAxios from 'vue-axios'
-//Vue.prototype.$http = axios
+
 import Vue from 'vue';
-Vue.prototype.$http = axios;
+
 
   export default {
   components: { BasicContainer },
@@ -94,7 +93,7 @@ Vue.prototype.$http = axios;
           let params = new URLSearchParams();
           params.append('teamId',row.teamId);
           console.log(row.teamId);
-          axios.post('http://localhost:8080/deleteteam', params,{
+          this.$http.post('http://localhost:8001/deleteteam', params,{
               headers: {
                   'Content-Type': 'application/x-www-form-urlencoded'
               }

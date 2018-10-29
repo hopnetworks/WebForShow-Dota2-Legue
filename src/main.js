@@ -34,7 +34,6 @@ Vue.prototype.timeTurn = function (msd) {
 
 }
 new Vue({
-
     axios,
   router,
   render: h => h(App),

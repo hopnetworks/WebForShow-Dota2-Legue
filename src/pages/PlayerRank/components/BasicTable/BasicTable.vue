@@ -24,17 +24,27 @@
       <el-table-column
               prop="killsSum"
               label="联赛总击杀"
-              width="120">
+              width="150"
+              sortable
+         >
       </el-table-column>
 
       <el-table-column
+              sortable
               prop="assistsSum"
               label="联赛总助攻"
               width="120">
       </el-table-column>
       <el-table-column
+              sortable
               prop="deathsSum"
               label="联赛死亡"
+              width="120">
+      </el-table-column>
+      <el-table-column
+              sortable
+              prop="integration"
+              label="联赛总积分"
               width="120">
       </el-table-column>
       <el-table-column  >
@@ -73,11 +83,15 @@
                 this.$router.push({ path: '/playerdetial', query: { team_id: row.teamId }})
 
 
+            },
+            filterHandler(value, row, column) {
+                const property = column['property'];
+                return row[property] === value;
             }
         },
         mounted: function () {
 
-            axios.get('http://localhost:8080/findallplayer', {})
+            axios.get('http://localhost:8001/findallplayer', {})
                 .then((response) => {
                     // console.log(response.data);
                     console.log(response.data);

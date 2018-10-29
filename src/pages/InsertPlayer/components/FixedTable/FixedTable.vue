@@ -24,7 +24,7 @@
           label="选手击杀总数"
           width="120">
         </el-table-column>
-     <el-table-column label="操作" width="180" fixed="right">
+     <el-table-column label="操作" width="180" >
           <template slot-scope="scope">
             <!--<el-button-->
               <!--size="mini"-->
@@ -43,11 +43,11 @@
 
 <script>
 import BasicContainer from '@vue-materials/basic-container'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-//Vue.prototype.$http = axios
+
+
+
 import Vue from 'vue';
-Vue.prototype.$http = axios;
+
 
   export default {
   components: { BasicContainer },
@@ -76,7 +76,7 @@ Vue.prototype.$http = axios;
           let params = new URLSearchParams();
           params.append('accountId',row.accountId);
           console.log(row.teamId);
-          axios.post('http://localhost:8080/deleteplayer', params,{
+          this.$http.post('http://localhost:8001/deleteplayer', params,{
               headers: {
                   'Content-Type': 'application/x-www-form-urlencoded'
               }

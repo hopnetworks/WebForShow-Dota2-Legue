@@ -48,11 +48,11 @@
 
 <script>
 import BasicContainer from '@vue-materials/basic-container'
-import axios from 'axios'
+
 import VueAxios from 'vue-axios'
-//Vue.prototype.$http = axios
+
 import Vue from 'vue';
-Vue.prototype.$http = axios;
+
 
   export default {
   components: { BasicContainer },
@@ -77,7 +77,7 @@ Vue.prototype.$http = axios;
 
   methods: {
       getTeamData(){
-          axios.get('http://localhost:8080/findallteam', {
+          this.$http.get('http://localhost:8001/findallteam', {
 
           })
               .then((response) => {
@@ -96,7 +96,7 @@ Vue.prototype.$http = axios;
         let params = new URLSearchParams();
         params.append('matchId',row.matchId);
       console.log(row.matchId);
-        axios.post('http://localhost:8080//deletematch', params,{
+        this.$http.post('http://localhost:8001/deletematch', params,{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
@@ -129,7 +129,7 @@ this.reload();
   },
 
   mounted:function(){
-   this.getTeamData();
+
   },
 
 

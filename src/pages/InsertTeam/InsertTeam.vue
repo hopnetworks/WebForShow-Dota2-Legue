@@ -24,8 +24,8 @@
 <script>
 import FixedTable from './components/FixedTable';
 import Vue from 'vue';
-import axios from 'axios'
-Vue.prototype.$http = axios;
+
+
 
 // var vm=new Vue({
 //     el: 'InsertPlayer-page',
@@ -34,6 +34,7 @@ Vue.prototype.$http = axios;
 // });
 export default {
   name: 'InsertTeam',
+
   components: {
     FixedTable,
 
@@ -68,7 +69,7 @@ export default {
         params.append('teamName', this.newForm.teamName);
          let  that=this;
         console.log(this.newForm.teamName);
-        axios.post('http://localhost:8080/insertteam', params,{
+        this.$http.post('http://localhost:8001/insertteam', params,{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
@@ -78,8 +79,22 @@ export default {
                 // console.log(response.data);
                 console.log(response.data);
 
+                this.$http.get('http://localhost:8001/findallteam', {
 
-            //  this.$options.FixedTable.reload();
+                })
+                    .then((response) => {
+                        // console.log(response.data);
+                        console.log(response.data);
+                        this.tabledata1=response.data;
+
+
+                        //  Vue.set(this.tabledata1,response.data)
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
+                //  this.$options.FixedTable.reload();
                // that.dialogVisible=false;
                // this.tableData3=response.data;
             })
@@ -90,7 +105,7 @@ export default {
     },
        getTeamData(){
 //
-    axios.get('http://localhost:8080/findallteam', {
+           this.$http.get('http://localhost:8001/findallteam', {
 
     })
         .then((response) => {

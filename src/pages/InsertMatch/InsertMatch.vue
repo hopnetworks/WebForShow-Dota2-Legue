@@ -24,8 +24,8 @@
 <script>
 import FixedTable from './components/FixedTable';
 import Vue from 'vue';
-import axios from 'axios'
-Vue.prototype.$http = axios;
+
+
 
 
 
@@ -44,11 +44,6 @@ export default {
     data() {
         return {
             tabledata1:[
-                {matchId:'',
-                    win:0,
-                    duration:'',
-                    first_blood_time:0,
-                }
 
             ],
             dialogVisible: false,
@@ -72,7 +67,7 @@ export default {
         params.append('matchId', this.newForm.matchId);
          let  that=this;
         console.log(this.newForm.matchId);
-        axios.post('http://localhost:8080/insertmatch', params,{
+        this.$http.post('http://localhost:8001/insertmatch', params,{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
@@ -81,7 +76,7 @@ export default {
             .then((response) => {
                 // console.log(response.data);
                 console.log(response.data);
-                axios.get('http://localhost:8080/findallmatch', {
+                this.$http.get('http://localhost:8001/findallmatch', {
 
                 })
                     .then((response) => {
@@ -106,7 +101,7 @@ export default {
     },
        getTeamData(){
 //
-    axios.get('http://localhost:8080/findallmatch', {
+           this.$http.get('http://localhost:8001/findallmatch', {
 
     })
         .then((response) => {

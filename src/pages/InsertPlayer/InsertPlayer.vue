@@ -25,8 +25,7 @@
 <script>
 import FixedTable from './components/FixedTable';
 import Vue from 'vue';
-import axios from 'axios'
-Vue.prototype.$http = axios;
+
 
 
 export default {
@@ -64,7 +63,7 @@ export default {
         params.append('accountId', this.newForm.accountId);
          let  that=this;
         console.log(this.newForm.accountId);
-        axios.post('http://localhost:8080/insertplayer', params,{
+        this.$http.post('http://localhost:8001/insertplayer', params,{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
@@ -76,7 +75,7 @@ export default {
             params = new URLSearchParams();
                 console.log( this.teamId);
                 params.append('teamId', this.teamId);
-                axios.post('http://localhost:8080/findbyteamid',params, {
+                this.$http.post('http://localhost:8001/findbyteamid',params, {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
                     }
@@ -102,8 +101,7 @@ export default {
         let params = new URLSearchParams();
         params.append('teamId', this.teamId);
         console.log( this.teamId);
-
-        axios.post('http://localhost:8080/findbyteamid',params,{
+        this.$http.post('http://localhost:8001/findbyteamid',params,{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
