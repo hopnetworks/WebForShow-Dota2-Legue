@@ -75,9 +75,9 @@
 
             }
         },
-        mounted: function () {
+        created: function () {
 
-            axios.get('http://localhost:8001/findallteam', {})
+            axios.get('https://ai.hopnetwork.com:8001/findallteam', {})
                 .then((response) => {
                     // console.log(response.data);
                     console.log(response.data);

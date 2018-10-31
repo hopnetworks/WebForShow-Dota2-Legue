@@ -17,7 +17,7 @@
               @click="handleShow(scope.$index, scope.row)">
       </el-table-column>
       <el-table-column
-              prop="name"
+              prop="personaname"
               label="玩家名"
               width="120">
       </el-table-column>
@@ -89,9 +89,9 @@
                 return row[property] === value;
             }
         },
-        mounted: function () {
+        created: function () {
 
-            axios.get('http://localhost:8001/findallplayer', {})
+            axios.get('https://ai.hopnetwork.com:8001/findallplayer', {})
                 .then((response) => {
                     // console.log(response.data);
                     console.log(response.data);

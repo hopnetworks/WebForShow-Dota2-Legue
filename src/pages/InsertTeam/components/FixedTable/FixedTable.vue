@@ -93,7 +93,7 @@ import Vue from 'vue';
           let params = new URLSearchParams();
           params.append('teamId',row.teamId);
           console.log(row.teamId);
-          this.$http.post('http://localhost:8001/deleteteam', params,{
+          this.$http.post('https://ai.hopnetwork.com:8001/deleteteam', params,{
               headers: {
                   'Content-Type': 'application/x-www-form-urlencoded'
               }

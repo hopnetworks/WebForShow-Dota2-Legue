@@ -67,7 +67,7 @@ export default {
         params.append('matchId', this.newForm.matchId);
          let  that=this;
         console.log(this.newForm.matchId);
-        this.$http.post('http://localhost:8001/insertmatch', params,{
+        this.$http.post('https://ai.hopnetwork.com:8001/insertmatch', params,{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
@@ -76,7 +76,7 @@ export default {
             .then((response) => {
                 // console.log(response.data);
                 console.log(response.data);
-                this.$http.get('http://localhost:8001/findallmatch', {
+                this.$http.get('https://ai.hopnetwork.com:8001/findallmatch', {
 
                 })
                     .then((response) => {
@@ -101,7 +101,7 @@ export default {
     },
        getTeamData(){
 //
-           this.$http.get('http://localhost:8001/findallmatch', {
+           this.$http.get('https://ai.hopnetwork.com:8001/findallmatch', {
 
     })
         .then((response) => {

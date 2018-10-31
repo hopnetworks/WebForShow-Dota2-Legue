@@ -19,6 +19,7 @@
         <el-table-column
                 prop="duration"
                 label="持续时间"
+                sortable
                 width="120">
         </el-table-column>
         <el-table-column
@@ -90,9 +91,9 @@ import Vue from 'vue';
 
           }
       },
-      mounted: function () {
+      created: function () {
 
-          this.$http.get('http://localhost:8001/findallmatch', {})
+          this.$http.get('https://ai.hopnetwork.com:8001/findallmatch', {})
               .then((response) => {
                   // console.log(response.data);
                   this.tabledata = response.data;
@@ -110,6 +111,8 @@ import Vue from 'vue';
 
 <style>
   .fixed-table {
+      background: linear-gradient(#fff,#aaa);
 
+      font-size: 17px;
   }
 </style>

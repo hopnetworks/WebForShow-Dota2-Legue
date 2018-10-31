@@ -69,7 +69,7 @@ export default {
         params.append('teamName', this.newForm.teamName);
          let  that=this;
         console.log(this.newForm.teamName);
-        this.$http.post('http://localhost:8001/insertteam', params,{
+        this.$http.post('https://ai.hopnetwork.com:8001/insertteam', params,{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
@@ -79,7 +79,7 @@ export default {
                 // console.log(response.data);
                 console.log(response.data);
 
-                this.$http.get('http://localhost:8001/findallteam', {
+                this.$http.get('https://ai.hopnetwork.com:8001/findallteam', {
 
                 })
                     .then((response) => {
@@ -105,7 +105,7 @@ export default {
     },
        getTeamData(){
 //
-           this.$http.get('http://localhost:8001/findallteam', {
+           this.$http.get('https://ai.hopnetwork.com:8001/findallteam', {
 
     })
         .then((response) => {

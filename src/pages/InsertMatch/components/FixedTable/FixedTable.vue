@@ -77,7 +77,7 @@ import Vue from 'vue';
 
   methods: {
       getTeamData(){
-          this.$http.get('http://localhost:8001/findallteam', {
+          this.$http.get('https://ai.hopnetwork.com:8001/findallteam', {
 
           })
               .then((response) => {
@@ -96,7 +96,7 @@ import Vue from 'vue';
         let params = new URLSearchParams();
         params.append('matchId',row.matchId);
       console.log(row.matchId);
-        this.$http.post('http://localhost:8001/deletematch', params,{
+        this.$http.post('https://ai.hopnetwork.com:8001/deletematch', params,{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }

@@ -6,9 +6,7 @@ module.exports = {
       extensions: ['.js', '.json', '.vue'],
     },
   },
-    output: {
-        publicPath: '/WebForShow-Dota2-Legue/dist/',
-    },
+
     // build: {
     //     // Template for index.html
     //     //  index: path.resolve(__dirname, '../dist/index.html'),
