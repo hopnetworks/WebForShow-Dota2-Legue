@@ -28,3 +28,14 @@ export default {
   },
 };
 </script>
+<style>
+    .analysis-page {
+        background: linear-gradient(#fff,#aaa);
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        background-color: #ffffff;
+        font-size: 17px;
+    }
+</style>

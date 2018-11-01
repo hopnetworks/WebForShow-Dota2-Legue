@@ -1,5 +1,5 @@
 <template>
-  <el-menu class="navbar" mode="horizontal" style="background-color:#1c2635;">
+  <el-menu class="navbar" mode="horizontal" style="background-color:#1c2635;border-bottom:coral">
   <div class="header" style="color: #bbb">
       <div class="logo">
         <i class="back"></i>
@@ -33,11 +33,17 @@
             </el-badge>
           </span>
         </div>
+
+
+
+
         <el-dropdown>
           <div class="user-profile-body">
             <img class="user-avatar" src="https://img.alicdn.com/tfs/TB1ONhloamWBuNjy1XaXXXCbXXa-200-200.png">
             <span class="user-name">Player</span>
           </div>
+
+
           <el-dropdown-menu class="user-dropdown" slot="dropdown">
             <router-link to="/">
               <el-dropdown-item>
@@ -81,7 +87,7 @@ export default {
     position :absolute;
     width :80%;
     height :56px;
-    color: #463939;
+    color: #303133;
     display :flex;
     line-height: 65px;
    // background: #1c2635;
@@ -90,7 +96,7 @@ export default {
     .tabs{
           width :60%;
           display :flex;
-          font-size :17px;
+          font-size :14px;
           .item{
             flex: 1;
             text-align :center;

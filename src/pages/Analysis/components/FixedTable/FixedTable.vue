@@ -1,16 +1,23 @@
 <template>
-
-  <div className="fixed-table">
-    <basic-container>
+  <div id="matchpage" className="fixed-table">
+    <basic-container style="width:100%;color:#f0f9eb;
+          background-color:#333">
 
       <el-table
+              :header-cell-style="{ 'background-color':'#282733',color:'#ffffff'}"
+              className="matchclass"
+              cell-style="padding:0"
               :data="tabledata"
-              style="width:100%"
-              stripe
+              style="width:100%;color:#f0f9eb;
+          background-color:#303133"
+              :row-style="{background:'#303133',color:'#4efd1ffa'}"
               @row-click="handleShow">
         <el-table-column
+                :cell-class-name="rowClass"
                 type="button"
                 fixed
+                color="#f0f9eb"
+                background="#f0f9eb"
                 prop="matchId"
                 label="比赛ID"
                 width="150"
@@ -20,7 +27,8 @@
                 prop="duration"
                 label="持续时间"
                 sortable
-                width="120">
+                width="150"
+                >
         </el-table-column>
         <el-table-column
                 prop="first_blood_time"
@@ -56,6 +64,17 @@
         </el-table-column>
 
       </el-table>
+        <div class="block">
+            <span class="demonstration"></span>
+            <el-pagination
+                    style="padding: 15px 5px;"
+                    small
+                    width="100%"
+                    background
+                    layout="prev, pager, next"
+                    :total="1000">
+            </el-pagination>
+        </div>
     </basic-container>
     <!--<div>{{'parent data : ' + tabledata}}</div>-->
   </div>
@@ -76,11 +95,16 @@ import Vue from 'vue';
       data() {
           return {
               tabledata: [
-                  { winteam:'',}
+
               ]
           }
       },
       methods: {
+          tableRowClassName(row) {
+
+                  return 'tableRowClassName';
+
+          },
 
           handleEdit(index, row) {
               console.log(index, row);
@@ -109,10 +133,36 @@ import Vue from 'vue';
   }
 </script>
 
-<style>
+<style scoped>
   .fixed-table {
-      background: linear-gradient(#fff,#aaa);
+      background: linear-gradient(#55ff61, #3358aa);
 
       font-size: 17px;
   }
+  .el-table{
+      font-size: 1px;
+  }
+   .el-table tr th{
+      padding: 1px 0px 1px 42px;
+      background-color: #303133;
+      color: aliceblue;
+
+  }.el-table td{
+         padding: 1px 0px 1px 42px;
+         border-bottom: 1px solid #8e8e8e;
+   }
+  .el-table-column{
+      background:#f0f9eb ;
+  }
+  .el-table.tableRowClassName{
+      background:#f0f9eb ;
+  }
+    .el-pagination{
+        text-align: center;
+
+    }
+ #matchpage.el-table--striped .el-table__body tr.el-table__row--striped td {
+      background: #35384c;
+  }
+
 </style>

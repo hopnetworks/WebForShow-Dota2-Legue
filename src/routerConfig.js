@@ -18,7 +18,7 @@ const routerConfig = [
   {
     path: '/',
     layout: SideLayout,
-    component: Dashboard,
+    component:  PlayerRank,
   },
     {
         path: '/12',
@@ -110,7 +110,7 @@ const routerConfig = [
   {
     path: '*',
     layout: HeaderAsideLayout,
-    component: NotFound,
+    component:  PlayerRank,
   },
 ];
 
