@@ -1,13 +1,14 @@
 <template>
-
-<div className="fixed-table">
-  <basic-container>
-
-    <el-table
-            :data="tabledata"
-            style="width:100%"
-            stripe
-            @row-click="handleShow">
+  <div id="matchpage" className="fixed-table">
+    <basic-container style="width:100%;color:#f0f9eb;
+          background-color: #303133">
+      <el-table
+              :header-cell-style="{ 'background-color':'#282733',color:'#ffffff'}"
+              :data="tabledata"
+              style="width: 100%"
+              :row-style="{background:'#303133',color:'#4efd1ffa'}"
+              @row-click="handleShow"
+              stripe>
       <el-table-column
               type="button"
               fixed
@@ -112,4 +113,6 @@
   .fixed-table {
 
   }
+
+
 </style>

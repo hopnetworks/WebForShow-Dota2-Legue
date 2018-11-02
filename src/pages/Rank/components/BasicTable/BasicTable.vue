@@ -1,32 +1,31 @@
 <template>
-
-<div className="fixed-table">
-  <basic-container>
-
-    <el-table
-            :data="tabledata"
-            style="width:100%"
-            stripe
-
-            @row-click="handleShow">
+  <div id="matchpage" className="fixed-table">
+    <basic-container style="width:100%;color:#f0f9eb;
+          background-color: #303133">
+      <el-table
+              :header-cell-style="{ 'background-color':'#282733',color:'#ffffff'}"
+              :data="tabledata"
+              :row-style="{background:'#303133',color:'#4efd1ffa'}"
+              @row-click="handleShow"
+              stripe>
       <el-table-column
              href=""
               type="button"
               fixed
               prop="teamName"
               label="队伍名"
-              width="150"
+
            @click="handleShow(scope.$index, scope.row)">
       </el-table-column>
       <el-table-column
               prop="gameSum"
               label="比赛数"
-              width="120">
+>
       </el-table-column>
       <el-table-column
               prop="integration"
               label="队伍积分"
-              width="120">
+           >
       </el-table-column>
 
       <el-table-column  >

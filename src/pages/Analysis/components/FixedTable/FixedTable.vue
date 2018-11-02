@@ -1,42 +1,32 @@
 <template>
   <div id="matchpage" className="fixed-table">
     <basic-container style="width:100%;color:#f0f9eb;
-          background-color:#333">
-
+          background-color: #303133">
       <el-table
               :header-cell-style="{ 'background-color':'#282733',color:'#ffffff'}"
-              className="matchclass"
-              cell-style="padding:0"
               :data="tabledata"
-              style="width:100%;color:#f0f9eb;
-          background-color:#303133"
               :row-style="{background:'#303133',color:'#4efd1ffa'}"
-              @row-click="handleShow">
+              @row-click="handleShow"
+              stripe>
         <el-table-column
-                :cell-class-name="rowClass"
-                type="button"
                 fixed
-                color="#f0f9eb"
-                background="#f0f9eb"
                 prop="matchId"
                 label="比赛ID"
-                width="150"
                 @click="handleShow(scope.$index, scope.row)">
         </el-table-column>
         <el-table-column
                 prop="duration"
                 label="持续时间"
                 sortable
-                width="150"
                 >
         </el-table-column>
         <el-table-column
                 prop="first_blood_time"
                 label="一血时间"
-                width="120">
+        >
         </el-table-column>
           <!--v-if="tabledata.radiant_win ==true"-->
-        <el-table-column label="胜利阵营"  width="120">
+        <el-table-column label="胜利阵营"  >
             <template slot-scope="scope">
                 <p v-if="scope.row.radiant_win ==true">
                     天辉
@@ -139,18 +129,23 @@ import Vue from 'vue';
 
       font-size: 17px;
   }
-  .el-table{
+  >>>.el-table{
+      padding:0;
       font-size: 1px;
+      border-bottom: 0;
   }
-   .el-table tr th{
+  >>>.el-table tr th{
       padding: 1px 0px 1px 42px;
-      background-color: #303133;
+      /*background-color: #303133;*/
       color: aliceblue;
 
-  }.el-table td{
-         padding: 1px 0px 1px 42px;
-         border-bottom: 1px solid #8e8e8e;
+  }
+  >>>.el-table td{
+    padding: 1px 0px 1px 42px;
+
    }
+
+
   .el-table-column{
       background:#f0f9eb ;
   }
@@ -159,10 +154,52 @@ import Vue from 'vue';
   }
     .el-pagination{
         text-align: center;
+    }
+
+
+  .el-table--striped >>>.el-table__body tr.el-table__row--striped td,.el-table__body tr.hover-row td{
+    background: #23222e;
+  }
+  .el-table--striped >>>.el-table__body tr.hover-row td{
+      background: #2c2c42;
+  }
+
+
+  /*>>> .el-table--striped{*/
+      /*background-color: #041425;*/
+
+  /*}*/
+</style>
+<style >
+   .el-table tr th{
+        padding: 1px 0px 1px 42px;
+        /*background-color: #303133;*/
+        color: aliceblue;
 
     }
- #matchpage.el-table--striped .el-table__body tr.el-table__row--striped td {
-      background: #35384c;
-  }
+ .el-table td{
+        padding: 1px 0px 1px 42px;
+
+    }
+    .el-table--striped .el-table__body tr.el-table__row--striped td,.el-table__body tr.hover-row td{
+        background: #23222e;
+    }
+    .el-table--striped .el-table__body tr.hover-row td{
+        background: #2c2c42;
+    }
+  .el-table tr th{
+       padding: 1px 0px 1px 42px;
+       /*background-color: #303133;*/
+       color: aliceblue;
+
+   }
+  .el-table{
+       padding:0;
+       font-size: 1px;
+       border-bottom: 0;
+   }
+   .el-table.cell{
+   line-height:23px;
+   }
 
 </style>
