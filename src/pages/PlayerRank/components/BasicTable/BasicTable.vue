@@ -118,6 +118,10 @@
   >>>.el-table th.is-leaf{
     border-bottom:0px solid #ebeef5;
   }
+  >>>.el-table__empty-block{
+
+    background: #23222e;
+  }
   >>>.el-table{
     padding:0;
     font-size: 1px;

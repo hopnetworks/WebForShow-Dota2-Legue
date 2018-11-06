@@ -129,6 +129,10 @@ import Vue from 'vue';
 
       font-size: 17px;
   }
+  >>>.el-table__empty-block{
+
+      background: #23222e;
+  }
   >>>.el-table th.is-leaf{
       border-bottom:0px solid #ebeef5;
   }

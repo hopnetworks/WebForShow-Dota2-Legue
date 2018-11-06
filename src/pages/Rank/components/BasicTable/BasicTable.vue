@@ -118,7 +118,10 @@
         border-bottom:0px solid #ebeef5;
     }
 
+    >>>.el-table__empty-block{
 
+        background: #23222e;
+    }
     .el-table-column{
         background:#f0f9eb ;
     }
