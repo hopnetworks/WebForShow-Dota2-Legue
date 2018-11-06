@@ -93,8 +93,52 @@
     }
 </script>
 
-<style>
-  .fixed-table {
+<style scoped>
+    .fixed-table {
+        background: linear-gradient(#55ff61, #3358aa);
 
-  }
+        font-size: 17px;
+    }
+    >>>.el-table th.is-leaf{
+        border-bottom:0px solid #ebeef5;
+    }
+    >>>.el-table{
+        padding:0;
+        font-size: 1px;
+        border-bottom:0px solid #ebeef5;
+    }
+    >>>.el-table tr th{
+        padding: 1px 0px 1px 42px;
+        /*background-color: #303133;*/
+        color: aliceblue;
+
+    }
+    >>>.el-table td{
+        padding: 10px 10px 7px 42px;
+        border-bottom:0px solid #ebeef5;
+    }
+
+
+    .el-table-column{
+        background:#f0f9eb ;
+    }
+    .el-table.tableRowClassName{
+        background:#f0f9eb ;
+    }
+    .el-pagination{
+        text-align: center;
+    }
+
+    .el-table--striped >>>.el-table__body tr.el-table__row--striped td,.el-table__body tr.hover-row td{
+        background: #23222e;
+    }
+    .el-table--striped >>>.el-table__body tr.hover-row td{
+        background: #2c2c42;
+    }
+
+
+    /*>>> .el-table--striped{*/
+    /*background-color: #041425;*/
+
+    /*}*/
 </style>

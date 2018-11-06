@@ -42,7 +42,7 @@
         </el-table-column>
 
         <el-table-column label="胜利队伍" prop="win_team_name" >
-          <template  prop="win_team_name">
+
             <!--<el-button-->
             <!--size="mini"-->
             <!--@click="handleEdit(scope.$index, scope.row)">添加选手</el-button>-->
@@ -50,7 +50,7 @@
                     <!--size="mini"-->
                     <!--type="primary"-->
                     <!--@click="handleDelete(scope.$index, scope.row)">查看</el-button>-->
-          </template>
+
         </el-table-column>
 
       </el-table>
@@ -129,10 +129,13 @@ import Vue from 'vue';
 
       font-size: 17px;
   }
+  >>>.el-table th.is-leaf{
+      border-bottom:0px solid #ebeef5;
+  }
   >>>.el-table{
       padding:0;
       font-size: 1px;
-      border-bottom: 0;
+      border-bottom:0px solid #ebeef5;
   }
   >>>.el-table tr th{
       padding: 1px 0px 1px 42px;
@@ -142,7 +145,7 @@ import Vue from 'vue';
   }
   >>>.el-table td{
     padding: 1px 0px 1px 42px;
-
+      border-bottom:0px solid #ebeef5;
    }
 
 
@@ -155,7 +158,6 @@ import Vue from 'vue';
     .el-pagination{
         text-align: center;
     }
-
 
   .el-table--striped >>>.el-table__body tr.el-table__row--striped td,.el-table__body tr.hover-row td{
     background: #23222e;
@@ -170,36 +172,36 @@ import Vue from 'vue';
 
   /*}*/
 </style>
-<style >
-   .el-table tr th{
-        padding: 1px 0px 1px 42px;
-        /*background-color: #303133;*/
-        color: aliceblue;
+<!--<style >-->
+   <!--.el-table tr th{-->
+        <!--padding: 1px 0px 1px 42px;-->
+        <!--/*background-color: #303133;*/-->
+        <!--color: aliceblue;-->
 
-    }
- .el-table td{
-        padding: 1px 0px 1px 42px;
+    <!--}-->
+ <!--.el-table td{-->
+        <!--padding: 1px 0px 1px 42px;-->
 
-    }
-    .el-table--striped .el-table__body tr.el-table__row--striped td,.el-table__body tr.hover-row td{
-        background: #23222e;
-    }
-    .el-table--striped .el-table__body tr.hover-row td{
-        background: #2c2c42;
-    }
-  .el-table tr th{
-       padding: 1px 0px 1px 42px;
-       /*background-color: #303133;*/
-       color: aliceblue;
+    <!--}-->
+    <!--.el-table&#45;&#45;striped .el-table__body tr.el-table__row&#45;&#45;striped td,.el-table__body tr.hover-row td{-->
+        <!--background: #23222e;-->
+    <!--}-->
+    <!--.el-table&#45;&#45;striped .el-table__body tr.hover-row td{-->
+        <!--background: #2c2c42;-->
+    <!--}-->
+  <!--.el-table tr th{-->
+       <!--padding: 1px 0px 1px 42px;-->
+       <!--/*background-color: #303133;*/-->
+       <!--color: aliceblue;-->
 
-   }
-  .el-table{
-       padding:0;
-       font-size: 1px;
-       border-bottom: 0;
-   }
-   .el-table.cell{
-   line-height:23px;
-   }
+   <!--}-->
+  <!--.el-table{-->
+       <!--padding:0;-->
+       <!--font-size: 1px;-->
+       <!--border-bottom: 0;-->
+   <!--}-->
+   <!--.el-table.cell{-->
+   <!--line-height:23px;-->
+   <!--}-->
 
-</style>
+<!--</style>-->

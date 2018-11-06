@@ -1,5 +1,5 @@
 <template>
-  <div id="matchpage" className="fixed-table">
+  <div id="playerpage" className="fixed-table">
     <basic-container style="width:100%;color:#f0f9eb;
           background-color: #303133">
       <el-table
@@ -14,18 +14,18 @@
               fixed
               prop="accountId"
               label="玩家Id"
-              width="150"
+
               @click="handleShow(scope.$index, scope.row)">
       </el-table-column>
       <el-table-column
               prop="personaname"
               label="玩家名"
-              width="120">
+      >
       </el-table-column>
       <el-table-column
               prop="killsSum"
               label="联赛总击杀"
-              width="150"
+
               sortable
          >
       </el-table-column>
@@ -34,19 +34,19 @@
               sortable
               prop="assistsSum"
               label="联赛总助攻"
-              width="120">
+         >
       </el-table-column>
       <el-table-column
               sortable
               prop="deathsSum"
               label="联赛死亡"
-              width="120">
+       >
       </el-table-column>
       <el-table-column
               sortable
               prop="integration"
               label="联赛总积分"
-              width="120">
+      >
       </el-table-column>
       <el-table-column  >
 
@@ -109,10 +109,52 @@
     }
 </script>
 
-<style>
+<style scoped>
   .fixed-table {
+    background: linear-gradient(#55ff61, #3358aa);
 
+    font-size: 17px;
+  }
+  >>>.el-table th.is-leaf{
+    border-bottom:0px solid #ebeef5;
+  }
+  >>>.el-table{
+    padding:0;
+    font-size: 1px;
+    border-bottom:0px solid #ebeef5;
+  }
+  >>>.el-table tr th{
+    padding: 1px 0px 1px 42px;
+    /*background-color: #303133;*/
+    color: aliceblue;
+
+  }
+  >>>.el-table td{
+    padding: 8px 2px 15px 42px;
+    border-bottom:0px solid #ebeef5;
   }
 
 
+  .el-table-column{
+    background:#f0f9eb ;
+  }
+  .el-table.tableRowClassName{
+    background:#f0f9eb ;
+  }
+  .el-pagination{
+    text-align: center;
+  }
+
+  .el-table--striped >>>.el-table__body tr.el-table__row--striped td,.el-table__body tr.hover-row td{
+    background: #23222e;
+  }
+  .el-table--striped >>>.el-table__body tr.hover-row td{
+    background: #2c2c42;
+  }
+
+
+  /*>>> .el-table--striped{*/
+  /*background-color: #041425;*/
+
+  /*}*/
 </style>
