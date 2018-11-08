@@ -11,7 +11,7 @@
         <div class="item">
           <router-link to="/Analysis">比赛记录</router-link>
         </div>
-        <div class="item">
+        <div class="item"style="width:120px;" >
           <router-link to="/rank">队伍积分排行</router-link>
         </div>
         <div class="item">
@@ -25,7 +25,15 @@
     <div class="user-profile-container" trigger="click"style=" color:#ecc8c8;">
       <div class="user-profile-content">
         <div class="menu-icons">
-          <span class="menu-icon"><i class="el-icon-search icon"></i></span>
+          <input v-model="inputId" placeholder="请输入玩家ID"style="
+  border-radius: 21px;
+    background-color: rgb(43, 39, 39);
+    padding: 1px;
+    height: 28px;
+    border: 2px solid rgb(88, 88, 88);
+    color: rgb(255, 255, 255);
+"@keyup.enter="submit"></input>
+          <span class="menu-icon"><i class="el-icon-search icon"   @click="submit"></i></span>
           <!--<span class="menu-icon"><i class="el-icon-message icon"></i></span>-->
           <span class="menu-icon">
             <el-badge is-dot class="item">
@@ -34,12 +42,10 @@
           </span>
         </div>
 
-
-
-
         <el-dropdown>
           <div class="user-profile-body">
-            <img class="user-avatar" src="https://img.alicdn.com/tfs/TB1ONhloamWBuNjy1XaXXXCbXXa-200-200.png">
+            <img class="user-avatar" src="https://img.alicdn.com/tfs/TB1ONhloamWBuNjy1XaXXXCbXXa-200-200.png"
+         >
             <span class="user-name">Player</span>
           </div>
 
@@ -73,7 +79,17 @@ export default {
     logout() {
       console.log('Logout');
     },
+      submit(){
+          console.log(this.inputId);
+          this.$router.push({ path: '/playerInfo', query: { inputId: this.inputId }})
+
+      }
   },
+    data() {
+        return {
+           inputId: null,
+        };
+    },
 };
 </script>
 
@@ -85,7 +101,7 @@ export default {
       }
  .header {
     position :absolute;
-    width :80%;
+    width :60%;
     height :56px;
     color: #303133;
     display :flex;
@@ -159,5 +175,24 @@ export default {
     }
   }
 }
+>>>.el-input__inner{
+    -webkit-appearance: none;
+    background-color: #2f2a2a;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #bdc5d8;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: inherit;
+    height: 40px;
+    line-height: 40px;
+    outline: 0;
+    padding: 0 15px;
+    -webkit-transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    width: 100%;
+  }
 </style>
 

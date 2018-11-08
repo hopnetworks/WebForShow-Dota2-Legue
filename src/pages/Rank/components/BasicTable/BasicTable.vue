@@ -71,7 +71,6 @@
             handleShow(row) { console.log( row);
                 this.$router.push({ path: '/teamdetial', query: { team_id: row.teamId }})
 
-
             }
         },
         created: function () {

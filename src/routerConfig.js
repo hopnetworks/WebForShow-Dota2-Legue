@@ -14,17 +14,18 @@ import Rank from './pages/Rank';
 import InsertMatch from './pages/InsertMatch';
 import NotFound from './pages/NotFound';
 import PlayerRank from './pages/PlayerRank';
+import PlayerInfo from './pages/PlayerInfo';
 const routerConfig = [
   {
     path: '/',
     layout: SideLayout,
-    component:  PlayerRank,
+    // component: PlayerRank,
   },
-    {
-        path: '/12',
-        layout: SideLayout,
-        component: Dashboard,
-    },
+  {
+    path: '/12',
+    layout: SideLayout,
+    component: Dashboard,
+  },
   {
     path: '/table',
     layout: HeaderAsideLayout,
@@ -46,20 +47,22 @@ const routerConfig = [
     path: '/form',
     layout: HeaderAsideLayout,
     component: NotFound,
-
   },
     {
-        path: '/insertMatch',
-        layout:SideLayout,
-        component: InsertMatch,
-
-    },
-
-    {
-        path: '/playerrank',
+        path: '/playerInfo',
         layout: HeaderAsideLayout,
-        component: PlayerRank,
+        component: PlayerInfo,
     },
+  {
+    path: '/insertMatch',
+    layout: SideLayout,
+    component: InsertMatch,
+  },
+  {
+    path: '/playerrank',
+    layout: HeaderAsideLayout,
+    component: PlayerRank,
+  },
   {
     path: '/Analysis',
     layout: HeaderAsideLayout,
@@ -82,18 +85,16 @@ const routerConfig = [
   //     },
   //   ],
   // },
-    {
-        path: '/insertteam',
-        layout:SideLayout,
-        component: InsertTeam,
-
-    },
-    {
-        path: '/insertplayer',
-        layout:SideLayout,
-        component: InsertPlayer,
-
-    },
+  {
+    path: '/insertteam',
+    layout: SideLayout,
+    component: InsertTeam,
+  },
+  {
+    path: '/insertplayer',
+    layout: SideLayout,
+    component: InsertPlayer,
+  },
   {
     path: '/rankandrecord',
     layout: HeaderAsideLayout,
@@ -104,13 +105,13 @@ const routerConfig = [
     layout: HeaderAsideLayout,
     component: Rank,
   },
-    {
-        path: '/empty',
-    },
+  {
+    path: '/empty',
+  },
   {
     path: '*',
     layout: HeaderAsideLayout,
-    component:  PlayerRank,
+    // component: PlayerRank,
   },
 ];
 
