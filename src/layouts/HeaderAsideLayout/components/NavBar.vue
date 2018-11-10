@@ -26,6 +26,7 @@
       <div class="user-profile-content">
         <div class="menu-icons">
           <input v-model="inputId" placeholder="请输入玩家ID"style="
+          font-family:Helvetica Neue;
   border-radius: 21px;
     background-color: rgb(43, 39, 39);
     padding: 1px;

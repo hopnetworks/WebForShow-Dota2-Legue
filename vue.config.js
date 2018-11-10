@@ -1,5 +1,6 @@
 //const path = require('path')
 module.exports = {
+    baseUrl:"/WebForShow-Dota2-Legue/dist/",
   lintOnSave: false,
   configureWebpack: {
     resolve: {

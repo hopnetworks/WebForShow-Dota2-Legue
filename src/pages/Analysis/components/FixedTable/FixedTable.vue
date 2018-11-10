@@ -2,6 +2,12 @@
   <div id="matchpage" className="fixed-table">
     <basic-container style="width:100%;color:#f0f9eb;
           background-color: #303133">
+        <el-tabs v-model="tabKey" @tab-click="handleClick">
+            <el-tab-pane
+                    v-for="tab in tabs"
+                    :label="tab.tab"
+                    :name="tab.key"
+                    :key="tab.key">
       <el-table
               :header-cell-style="{ 'background-color':'#282733',color:'#ffffff'}"
               :data="tabledata"
@@ -54,6 +60,8 @@
         </el-table-column>
 
       </el-table>
+            </el-tab-pane>
+        </el-tabs>
         <div class="block">
             <span class="demonstration"></span>
             <el-pagination
@@ -86,10 +94,24 @@ import Vue from 'vue';
           return {
               tabledata: [
 
-              ]
+              ],
+              tabKey: 'all',
+              columns: [
+                  {
+                      title: '标题',
+                      dataIndex: 'title',
+                      key: 'title',
+                  },],
+              tabs: [
+                  { tab: '数据', key: 'all' },
+                  { tab: '统计', key: 'inreview' },
+              ],
           }
+
       },
-      methods: {
+      methods: { handleClick(tab) {
+              console.log(tab);
+          },
           tableRowClassName(row) {
 
                   return 'tableRowClassName';

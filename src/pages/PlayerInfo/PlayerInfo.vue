@@ -55,7 +55,6 @@
                 rank_tier:null,
                 solo_competitive_rank: null
 
-
             };
         },
         watch: {
