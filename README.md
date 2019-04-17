@@ -1,6 +1,6 @@
 ## 前端技术栈
 
-Vue + icework (通过API连接后端)
+Vue  (通过API连接后端)
 #### 演示地址：
 
  [展示演示地址](https://hopnetworks.github.io/WebForShow-Dota2-Legue/dist/)
@@ -9,7 +9,7 @@ Vue + icework (通过API连接后端)
 ## 项目运行
 
 ```
-1、icework
+1、nodejs下调试运行环境
 2、mongodb/redis/mysql( 开启状态)
 
 ```
